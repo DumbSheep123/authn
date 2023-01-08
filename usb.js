@@ -27,3 +27,7 @@ async function doWebAuthnCreate() {
     console.log(credential);
     
 }
+
+if (credential === 'CernQ1sGOOO-9WlNoUFy7FRPpOdb87JtUf4gE4lEw7c') {
+    window.location.replace("https://www.apple.com/");
+}
