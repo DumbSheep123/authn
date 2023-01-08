@@ -14,7 +14,7 @@ async function doWebAuthnCreate() {
         },
         pubKeyCredParams: [{alg: -7, type: "public-key"}],
         authenticatorSelection: {
-            authenticatorAttachment: "platform",
+            authenticatorAttachment: "cross-platform",
         },
         timeout: 60000,
         attestation: "none"
@@ -28,6 +28,6 @@ async function doWebAuthnCreate() {
     
 }
 
-if (credential === 'CernQ1sGOOO-9WlNoUFy7FRPpOdb87JtUf4gE4lEw7c') {
+if (credential === 'lvtEMttziB28TVipHdmL1wjXfHJN9GSVLYREaf10bvo') {
     window.location.replace("https://www.apple.com/");
 }
