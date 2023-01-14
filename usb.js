@@ -9,7 +9,7 @@ async function doWebAuthnCreate() {
         user: {
             id: Uint8Array.from(
                 "UZSL85T9AFC", c => c.charCodeAt(0)),
-            name: "0001",
+            name: "Andrew Frykman",
             displayName: "Andrew Frykman",
         },
         pubKeyCredParams: [{alg: -7, type: "public-key"}],
@@ -28,6 +28,23 @@ async function doWebAuthnCreate() {
     
 }
 
-if (credential === 'lvtEMttziB28TVipHdmL1wjXfHJN9GSVLYREaf10bvo') {
-    window.location.replace("https://www.apple.com/");
-}
+// if (credential === 'lvtEMttziB28TVipHdmL1wjXfHJN9GSVLYREaf10bvo') {
+//     window.location.replace("https://www.apple.com/");
+// }
+
+// const input = document.getElementById("passkey-input").value;
+const crypto = window.crypto || window.msCrypto;
+const hash = crypto.subtle.digest("SHA-256", new TextEncoder().encode(credential));
+
+const hashArray = new Uint8Array(hash);
+let hashedInput = '';
+hashArray.forEach(b => hashedInput += b.toString(16).padStart(2, '0'));
+
+const storedPasskey = localStorage.getItem("hashedPasskey");
+
+if (hashedInput === storedPasskey) {
+    alert('Authenticated');
+  } else {
+    document.location.href = "https://apple.com";
+  }
+  
