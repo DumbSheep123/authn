@@ -28,6 +28,7 @@ async function doWebAuthnCreate() {
 
     console.log(credential);
     console.log(publicKey);
+    console.log(PublicKeyCredential);
 
     const input = document.getElementById("passkey-input").value;
     const crypto = window.crypto || window.msCrypto;
