@@ -34,6 +34,10 @@ async function doWebAuthnCreate() {
     let hashedInput = '';
     hashArray.forEach(b => hashedInput += b.toString(16).padStart(2, '0'));
 
+    console.log(hashedInput);
+    console.log(hashArray);
+    console.log(storedPasskey);
+
     const storedPasskey = localStorage.getItem("hashedPasskey");
 
     if (hashedInput === storedPasskey) {
